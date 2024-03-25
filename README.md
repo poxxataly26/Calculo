@@ -8,10 +8,10 @@ Este é um aplicativo web simples desenvolvido para calcular o salário dos vend
 
 Formulário de entrada : Os usuários podem inserir os seguintes detalhes:  
 
-Nome do vendedor 
-Meta semanal 
-Meta mensal 
-Cálculo Salarial  
+Nome do vendedor  
+Meta semanal   
+Meta mensal  
+Cálculo Salarial   
 
 ### Tecnologias utilizadas
 
