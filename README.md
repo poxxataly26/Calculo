@@ -1,6 +1,6 @@
 # Calculadora de salário de vendedor
 
-![image info](img/Print.png)
+![image info](Print.png)
 
 ## Descrição 
 
