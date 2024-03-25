@@ -23,3 +23,4 @@ PHP: Linguagem de programação utilizada principalmente para desenvolvimento we
 
 [Talyta](https://github.com/poxxataly26/Calculo.git)
 
+<img src="https://github.com/poxxataly26/portfolio-pessoal/blob/main/Img/foto.jpeg" width="100px">
