@@ -62,7 +62,7 @@ button:hover {
 
 </head>
 <body>
-    <h2>Calculadora de Salário para Vendedores</h2>
+     <h2>Calculadora de Salário para Vendedores</h2>
     <form method="post" action="">
         <label for="nome">Nome do Vendedor:</label><br>
         <input type="text" id="nome" name="nome" required><br><br>
