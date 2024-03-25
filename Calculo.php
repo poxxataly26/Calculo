@@ -93,7 +93,7 @@ button:hover {
         $bonus_excedente_mensal = $meta_mensal_alcancada ? ($excedente_mensal * 0.10) : 0;
 
         $salario_final = $salario_minimo + $bonus_semanal + $bonus_excedente_semanal + $bonus_excedente_mensal;
-
+        
         echo "<h3>Resultado para $nome:</h3>";
         echo "Salário Final: R$ " . number_format($salario_final, 2, ',', '.');
     }
