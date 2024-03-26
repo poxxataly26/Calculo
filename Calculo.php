@@ -71,8 +71,6 @@ button:hover {
         <input type="number" id="meta_semanal" name="meta_semanal" required><br><br>
         <label for="meta_mensal">Meta Mensal (R$):</label>
         <input type="number" id="meta_mensal" name="meta_mensal" required><br><br>
-        
-
         <button type="submit">Calcular Salário</button>
     </form>
 
@@ -92,8 +90,6 @@ function calcularSalario($metaSemanal, $metaMensal) {
     $salarioFinal = $salarioMinimo + $bonusSemanal + $bonusExcedenteSemanal + $bonusExcedenteMensal;
     return $salarioFinal;
 }
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $metaSemanal = $_POST["meta_semanal"];
     $metaMensal = $_POST["meta_mensal"];
