@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+<meta charset="UTF-8">
     <title>Calculadora de Salário</title>
     <style>
         body {
@@ -62,41 +63,45 @@ button:hover {
 
 </head>
 <body>
-     <h2>Calculadora de Salário para Vendedores</h2>
-    <form method="post" action="">
-        <label for="nome">Nome do Vendedor:</label><br>
-        <input type="text" id="nome" name="nome" required><br><br>
-
-        <label for="meta_semanal">Meta Semanal (R$):</label><br>
+<h1>Calculadora de Salário</h1>
+    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <label for="nome_vendedor">Nome do Vendedor:</label>
+        <input type="text" id="nome_vendedor" name="nome_vendedor" required><br><br>
+        <label for="meta_semanal">Meta Semanal (R$):</label>
         <input type="number" id="meta_semanal" name="meta_semanal" required><br><br>
-
-        <label for="meta_mensal">Meta Mensal (R$):</label><br>
+        <label for="meta_mensal">Meta Mensal (R$):</label>
         <input type="number" id="meta_mensal" name="meta_mensal" required><br><br>
+        
 
         <button type="submit">Calcular Salário</button>
     </form>
 
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nome = $_POST['nome'];
-        $meta_semanal = $_POST['meta_semanal'];
-        $meta_mensal = $_POST['meta_mensal'];
 
-        $salario_minimo = 1500;
-        $meta_semanal_alcancada = $meta_semanal >= 20000; 
-        $meta_mensal_alcancada = $meta_mensal >= 80000; 
-        $excedente_semanal = $meta_semanal - 20000; 
-        $excedente_mensal = $meta_mensal - 80000; 
-        
-        $bonus_semanal = $meta_semanal_alcancada ? ($meta_semanal * 0.01) : 0; 
-        $bonus_excedente_semanal = $meta_semanal_alcancada ? ($excedente_semanal * 0.05) : 0; 
-        $bonus_excedente_mensal = $meta_mensal_alcancada ? ($excedente_mensal * 0.10) : 0;
-
-        $salario_final = $salario_minimo + $bonus_semanal + $bonus_excedente_semanal + $bonus_excedente_mensal;
-        
-        echo "<h3>Resultado para $nome:</h3>";
-        echo "Salário Final: R$ " . number_format($salario_final, 2, ',', '.');
+function calcularSalario($metaSemanal, $metaMensal) {
+    $salarioMinimo = 1500; 
+    $bonusSemanal = ($metaSemanal / 100) * 1;
+    $excedenteSemanal = max(0, $metaSemanal - 20000);
+    $bonusExcedenteSemanal = ($excedenteSemanal / 100) * 5;
+    if ($metaSemanal >= 20000 && $metaMensal >= 80000) {
+        $excedenteMensal = max(0, $metaMensal - 80000);
+        $bonusExcedenteMensal = ($excedenteMensal / 100) * 10;
+    } else {
+        $bonusExcedenteMensal = 0;
     }
-    ?>
+    $salarioFinal = $salarioMinimo + $bonusSemanal + $bonusExcedenteSemanal + $bonusExcedenteMensal;
+    return $salarioFinal;
+}
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $metaSemanal = $_POST["meta_semanal"];
+    $metaMensal = $_POST["meta_mensal"];
+
+    $salarioFinal = calcularSalario($metaSemanal, $metaMensal);
+
+    echo "<h2>O salário final é: R$ " . number_format($salarioFinal, 2, ',', '.') . "</h2>";
+}
+?>
 </body>
 </html>
