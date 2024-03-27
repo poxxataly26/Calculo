@@ -77,10 +77,12 @@ button:hover {
     <?php
 
 function calcularSalario($metaSemanal, $metaMensal) {
+    // Definição do salário mínimo
     $salarioMinimo = 1500; 
     $bonusSemanal = ($metaSemanal / 100) * 1;
     $excedenteSemanal = max(0, $metaSemanal - 20000);
     $bonusExcedenteSemanal = ($excedenteSemanal / 100) * 5;
+    // Verifica se as metas semanal e mensal atingiram os critérios adicional
     if ($metaSemanal >= 20000 && $metaMensal >= 80000) {
         $excedenteMensal = max(0, $metaMensal - 80000);
         $bonusExcedenteMensal = ($excedenteMensal / 100) * 10;
@@ -94,8 +96,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $metaSemanal = $_POST["meta_semanal"];
     $metaMensal = $_POST["meta_mensal"];
 
+    // Calcular Salarios 
     $salarioFinal = calcularSalario($metaSemanal, $metaMensal);
 
+    // Exibi o salário final 
     echo "<h2>O salário final é: R$ " . number_format($salarioFinal, 2, ',', '.') . "</h2>";
 }
 ?>
