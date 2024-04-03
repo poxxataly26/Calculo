@@ -7,7 +7,7 @@
 Este é um aplicativo web simples desenvolvido para calcular o salário dos vendedores com base nos conhecimentos que estudamos em sala, em relação as metas de vendas semanais e mensais. A calculadora recebe informações como o nome do vendedor, a meta de vendas semanal e a meta de vendas mensal e, em seguida, calcula o salário final.
 
 ## Funcionalidades
-
+xcdd
 Formulário de entrada : Os usuários podem inserir os seguintes detalhes:  
 
 Nome do vendedor  
